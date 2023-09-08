@@ -10,6 +10,11 @@
  */
 public class Main {
     public static void main(String[] args) {
+        Car car1 = new Car();
+        car1.setModel("x6");
+        car1.setColor("Black");
+        car1.setYearOfManufacture(2006);
+        car1.difference();
 
     }
 }
