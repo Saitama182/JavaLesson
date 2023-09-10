@@ -14,7 +14,8 @@ public class Main {
         car1.setModel("x6");
         car1.setColor("Black");
         car1.setYearOfManufacture(2006);
-        car1.difference();
+        System.out.println(car1.difference(2021));
+        car1.info();
 
     }
 }

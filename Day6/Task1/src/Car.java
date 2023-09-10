@@ -31,14 +31,15 @@ public class Car {
         return model;
     }
 
+    public void  info() {
+        System.out.println("Это автомобиль");
+    }
 
 
 
-    public  void difference() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите год");
-        int yearToDay = scanner.nextInt();
-        System.out.println("разница между годом выпуска и переданным годом " + (yearToDay - yearOfManufacture));
+
+    public  int difference (int yearToDay) {
+        return  yearToDay - yearOfManufacture;
     }
 
 
