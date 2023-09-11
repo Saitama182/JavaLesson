@@ -12,6 +12,15 @@
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Plane plane1 = new Plane("Boeing", 1996, 120, 30);
+
+        plane1.fillUp(12);
+        plane1.fillUp(24);
+
+        plane1.setLength(121);
+        plane1.setWeight(31);
+        plane1.info();
+
     }
 }
