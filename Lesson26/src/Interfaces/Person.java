@@ -1,10 +1,10 @@
 package Interfaces;
 
 public class Person implements Info {
-    public String name;
+    public String namePers;
 
     public Person(String name) {
-        this.name = name;
+        this.namePers = name;
     }
 
     public void sayHello() {
@@ -13,6 +13,6 @@ public class Person implements Info {
 
     @Override
     public void showInfo() {
-        System.out.println("Name is " + this.name);
+        System.out.println("Name is " + this.namePers);
     }
 }
