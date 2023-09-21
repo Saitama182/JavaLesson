@@ -1,4 +1,4 @@
-public class Student extends Human{
+public class Student extends Human {
     private String NameOfTheStudyGroup;
 
     public String getNameOfTheStudyGroup() {
@@ -11,6 +11,11 @@ public class Student extends Human{
 
     public Student(String nameHuman, String nameOfTheStudyGroup) {
         super(nameHuman);
-        NameOfTheStudyGroup = nameOfTheStudyGroup;
+        this.NameOfTheStudyGroup = nameOfTheStudyGroup;
+    }
+
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Этот студент с именем " + getNameHuman());
     }
 }

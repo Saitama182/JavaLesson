@@ -26,7 +26,13 @@ printInfo();
 
 public class Main {
     public static void main(String[] args) {
-        Student student1 = new Student("Jack", "L-07");
+    Student student1 = new Student("Tom", "07-L");
+    Teacher teacher1 = new Teacher("Bob", "History");
 
+        System.out.println(student1.getNameOfTheStudyGroup());
+        System.out.println(teacher1.getItemName());
+
+        student1.printInfo();
+        teacher1.printInfo();
     }
 }

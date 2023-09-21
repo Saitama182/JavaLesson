@@ -12,8 +12,9 @@ public class Human {
     public Human(String nameHuman) {
         this.nameHuman = nameHuman;
     }
-    public void printInfo(){
-        System.out.println("Этот человек с именем" + this.nameHuman );
+
+    public void printInfo() {
+        System.out.println("Этот человек с именем " + nameHuman);
     }
 
 }
