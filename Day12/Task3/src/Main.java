@@ -18,7 +18,7 @@ public class Main {
         MusicBand ms5 = new MusicBand("Rammstein", 1994);
         MusicBand ms6 = new MusicBand("Subways", 2002);
         MusicBand ms7 = new MusicBand(" Arctic Monkeys", 2002);
-        MusicBand ms8 = new MusicBand("The Killers",2001 );
+        MusicBand ms8 = new MusicBand("The Killers", 2001);
         MusicBand ms9 = new MusicBand("Franz Ferdinand", 2002);
         MusicBand ms10 = new MusicBand("Nine Inch Nails", 1988);
 
@@ -40,11 +40,11 @@ public class Main {
         System.out.println(listBand);
 
         List<MusicBand> listBandAfter2000 = new ArrayList<>();
-            for (MusicBand band : listBand ) {
-                if ( band.getYear() > 2000) {
-                    listBandAfter2000.add(band);
-                }
+        for (MusicBand band : listBand) {
+            if (band.getYear() > 2000) {
+                listBandAfter2000.add(band);
             }
+        }
         System.out.println(listBandAfter2000);
 
 
