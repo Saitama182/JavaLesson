@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -50,7 +51,7 @@ public class Main {
         }
         System.out.println("\nЗадание 2)");
         System.out.print("Делятся на 3 и 9: ");
-               for (int number : num) {
+        for (int number : num) {
             if (number % 3 == 0 && number % 9 == 0) {
                 System.out.print(number + " ");
             }
@@ -88,7 +89,108 @@ public class Main {
         }
         System.out.println("\nЗадание 6)");
         System.out.println("Простые числа :");
+        for (int number : num) {
+            boolean primeNumber = true;
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+
+                if (number % i == 0) {
+                    primeNumber = false;
+                    break;
+                }
+            }
+            if (primeNumber) {
+                System.out.print(number + " ");
+            }
+        }
 
         System.out.println("\nЗадание 7)");
+        String arrayAsString = Arrays.toString(num);
+        System.out.println("Заданный массив : " + arrayAsString);
+        for (int number : num) {
+            boolean arrayIsNotSorted = true;
+            while (arrayIsNotSorted) {
+                arrayIsNotSorted = false;
+                for (int i = 0; i < num.length - 1; i++) {
+                    if (num[i] > num[i + 1]) {
+                        int temp = num[i];
+                        num[i] = num[i + 1];
+                        num[i + 1] = temp;
+                        arrayIsNotSorted = true;
+                    }
+                }
+            }
+        }
+        System.out.println("В порядке возрастания: ");
+        for (int number : num) {
+            System.out.print(number + " ");
+        }
+        for (int number : num) {
+            boolean arrayIsNotSorted = true;
+            while(arrayIsNotSorted) {
+                arrayIsNotSorted = false;
+                for (int i = 1; i < num.length; i++) {
+                    if (num[i] > num[i - 1]) {
+                        int temp = num[i - 1];
+                        num[i - 1] = num[i];
+                        num[i] = temp;
+                        arrayIsNotSorted = true;
+                    }
+                }
+            }
+        }
+        System.out.println("\nВ порядке убывания: ");
+        for (int number : num) {
+            System.out.print(number + " ");
+        }
+
+        System.out.println("\nЗадание 8)");
+
+
+        System.out.println("\nЗадание 9)");
+        for (int number : num) {
+            int rev = 0;
+            int rev2 = 0;
+            String strNum = String.valueOf(number);
+            int length = strNum.length();
+            for(int i = 0; i < length/2; i++){
+                int digit = number % 10;
+                rev = rev * 10 + digit;
+                number = number / 10;
+
+            }
+
+            for(int i = length/2; i > 0 ; i--){
+                int digit = number % 10;
+                rev2 = rev2 * 10 + digit;
+                number = number / 10;
+
+            }
+            if (rev == rev2 ) {
+                System.out.println("Число счастливое " + number);
+            }
+
+        }
+
+        System.out.println("\nЗадание 10)");
+
+        for (int number : num) {
+            int rev = 0;
+            int originalNumber = number;
+            String strNum = String.valueOf(number);
+            int length = strNum.length();
+            for(int i = 0; i < length; i++){
+                int digit = number % 10;
+                rev = rev * 10 + digit;
+                number = number / 10;
+
+                }
+            if(originalNumber == rev) {
+                System.out.println("Число-палиндром: " + originalNumber);
+            }
+
+        }
+
+
+
     }
 }
