@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -126,7 +126,7 @@ public class Main {
         }
         for (int number : num) {
             boolean arrayIsNotSorted = true;
-            while(arrayIsNotSorted) {
+            while (arrayIsNotSorted) {
                 arrayIsNotSorted = false;
                 for (int i = 1; i < num.length; i++) {
                     if (num[i] > num[i - 1]) {
@@ -145,28 +145,63 @@ public class Main {
 
         System.out.println("\nЗадание 8)");
 
+        int[] count = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            count[i] = 0;
+            for (int j = 0; j < n; j++) {
+                if (num[i] == num[j]) {
+                    count[i]++;
+                }
+            }
+        }
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (count[i] < count[j] || (count[i] == count[j] && num[i] < num[j])) {
+                    int tempCount = count[i];
+                    count[i] = count[j];
+                    count[j] = tempCount;
+                    int tempNum = num[i];
+                    num[i] = num[j];
+                    num[j] = tempNum;
+                }
+            }
+        }
+
+        System.out.println("Числа из массива" + "\t" + "Сколько раз встречается");
+        for (int i = 0; i < n; i += count[i]) {
+            System.out.println(num[i] + "\t\t\t\t\t" + count[i]);
+        }
+
 
         System.out.println("\nЗадание 9)");
         for (int number : num) {
-            int rev = 0;
-            int rev2 = 0;
             String strNum = String.valueOf(number);
             int length = strNum.length();
-            for(int i = 0; i < length/2; i++){
+            if (length % 2 != 0) {
+                continue;
+            }
+
+
+            int originalNumber = number;
+            int firstHalf = 0;
+            int secondHalf = 0;
+            for (int i = 0; i < length / 2; i++) {
                 int digit = number % 10;
-                rev = rev * 10 + digit;
+                firstHalf += digit;
                 number = number / 10;
 
             }
 
-            for(int i = length/2; i > 0 ; i--){
+            for (int i = length / 2; i > 0; i--) {
                 int digit = number % 10;
-                rev2 = rev2 * 10 + digit;
+                secondHalf += digit;
                 number = number / 10;
 
             }
-            if (rev == rev2 ) {
-                System.out.println("Число счастливое " + number);
+            if (firstHalf == secondHalf) {
+                System.out.println("Число счастливое " + originalNumber);
             }
 
         }
@@ -178,18 +213,26 @@ public class Main {
             int originalNumber = number;
             String strNum = String.valueOf(number);
             int length = strNum.length();
-            for(int i = 0; i < length; i++){
+            for (int i = 0; i < length; i++) {
                 int digit = number % 10;
                 rev = rev * 10 + digit;
                 number = number / 10;
 
-                }
-            if(originalNumber == rev) {
+            }
+            if (originalNumber == rev) {
                 System.out.println("Число-палиндром: " + originalNumber);
             }
 
         }
 
+        System.out.println("\nЗадание 11)");
+        System.out.println("Элементы, которые равны полусумме соседних элементов:");
+        for (int i = 1; i < n - 1; i++) {
+            if (num[i] == (num[i - 1] + num[i + 1]) / 2) {
+                System.out.print(num[i] + " ");
+            }
+
+        }
 
 
     }
