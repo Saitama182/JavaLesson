@@ -19,67 +19,75 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Введите количество чисел (n): ");
-        int n = s.nextInt();
-        int[] num = new int[n];
+        int n = scanner.nextInt();
+        int[] numbers = new int[n];
 
-        for (int i = 0; i < num.length; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println("Введите " + (i + 1) + " элемент массива");
-            num[i] = s.nextInt();
+            numbers[i] = scanner.nextInt();
         }
-        s.close();
 
+        System.out.println("Задание 1)");
+        printEvenAndOdd(numbers);
+
+        scanner.close();
+    }
+
+    private static void printEvenAndOdd(int[] numbers) {
         ArrayList<Integer> evenNumbers = new ArrayList<>();
         ArrayList<Integer> oddNumbers = new ArrayList<>();
 
-        for (int j = 0; j < num.length; j++) {
-            if (num[j] % 2 == 0) {
-                evenNumbers.add(num[j]);
+
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+                evenNumbers.add(number);
             } else {
-                oddNumbers.add(num[j]);
+                oddNumbers.add(number);
             }
         }
-        System.out.println("Задание 1)");
-        System.out.println("Четные числа: ");
-        for (int number : evenNumbers) {
-            System.out.print(number + " ");
-        }
-        System.out.println("\nНе четные числа: ");
-        for (int number : oddNumbers) {
-            System.out.print(number + " ");
-        }
+
+        System.out.println("Четные числа: " + evenNumbers);
+        System.out.println("Нечетные числа: " + oddNumbers);
+
+    }
+
+
+
+/*
+
         System.out.println("\nЗадание 2)");
         System.out.print("Делятся на 3 и 9: ");
-        for (int number : num) {
+        for (int number : numbers) {
             if (number % 3 == 0 && number % 9 == 0) {
                 System.out.print(number + " ");
             }
         }
         System.out.println("\nЗадание 3)");
         System.out.print("Делятся на 5 и 7: ");
-        for (int number : num) {
+        for (int number : numbers) {
             if (number % 5 == 0 && number % 7 == 0) {
                 System.out.print(number + " ");
             }
         }
 
         System.out.println("\nЗадание 4)");
-        int max = num[0];
-        int min = num[0];
-        for (int j = 0; j < num.length; j++) {
-            if (max < num[j]) {
-                max = num[j];
+        int max = numbers[0];
+        int min = numbers[0];
+        for (int j = 0; j < numbers.length; j++) {
+            if (max < numbers[j]) {
+                max = numbers[j];
             }
-            if (min > num[j]) {
-                min = num[j];
+            if (min > numbers[j]) {
+                min = numbers[j];
             }
         }
         System.out.println("Максимальное число: " + max);
         System.out.println("Минимальное число: " + min);
         System.out.println("\nЗадание 5)");
         System.out.println("трехзначные числа, в десятичной записи которых нет одинаковых цифр: ");
-        for (int number : num) {
+        for (int number : numbers) {
             int a = number % 10;
             int b = (number / 10) % 10;
             int c = number / 100;
@@ -89,7 +97,7 @@ public class Main {
         }
         System.out.println("\nЗадание 6)");
         System.out.println("Простые числа :");
-        for (int number : num) {
+        for (int number : numbers) {
             boolean primeNumber = true;
             for (int i = 2; i <= Math.sqrt(number); i++) {
 
@@ -104,42 +112,42 @@ public class Main {
         }
 
         System.out.println("\nЗадание 7)");
-        String arrayAsString = Arrays.toString(num);
+        String arrayAsString = Arrays.toString(numbers);
         System.out.println("Заданный массив : " + arrayAsString);
-        for (int number : num) {
+        for (int number : numbers) {
             boolean arrayIsNotSorted = true;
             while (arrayIsNotSorted) {
                 arrayIsNotSorted = false;
-                for (int i = 0; i < num.length - 1; i++) {
-                    if (num[i] > num[i + 1]) {
-                        int temp = num[i];
-                        num[i] = num[i + 1];
-                        num[i + 1] = temp;
+                for (int i = 0; i < numbers.length - 1; i++) {
+                    if (numbers[i] > numbers[i + 1]) {
+                        int temp = numbers[i];
+                        numbers[i] = numbers[i + 1];
+                        numbers[i + 1] = temp;
                         arrayIsNotSorted = true;
                     }
                 }
             }
         }
         System.out.println("В порядке возрастания: ");
-        for (int number : num) {
+        for (int number : numbers) {
             System.out.print(number + " ");
         }
-        for (int number : num) {
+        for (int number : numbers) {
             boolean arrayIsNotSorted = true;
             while (arrayIsNotSorted) {
                 arrayIsNotSorted = false;
-                for (int i = 1; i < num.length; i++) {
-                    if (num[i] > num[i - 1]) {
-                        int temp = num[i - 1];
-                        num[i - 1] = num[i];
-                        num[i] = temp;
+                for (int i = 1; i < numbers.length; i++) {
+                    if (numbers[i] > numbers[i - 1]) {
+                        int temp = numbers[i - 1];
+                        numbers[i - 1] = numbers[i];
+                        numbers[i] = temp;
                         arrayIsNotSorted = true;
                     }
                 }
             }
         }
         System.out.println("\nВ порядке убывания: ");
-        for (int number : num) {
+        for (int number : numbers) {
             System.out.print(number + " ");
         }
 
@@ -150,7 +158,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             count[i] = 0;
             for (int j = 0; j < n; j++) {
-                if (num[i] == num[j]) {
+                if (numbers[i] == numbers[j]) {
                     count[i]++;
                 }
             }
@@ -158,25 +166,25 @@ public class Main {
 
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
-                if (count[i] < count[j] || (count[i] == count[j] && num[i] < num[j])) {
+                if (count[i] < count[j] || (count[i] == count[j] && numbers[i] < numbers[j])) {
                     int tempCount = count[i];
                     count[i] = count[j];
                     count[j] = tempCount;
-                    int tempNum = num[i];
-                    num[i] = num[j];
-                    num[j] = tempNum;
+                    int tempNum = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = tempNum;
                 }
             }
         }
 
         System.out.println("Числа из массива" + "\t" + "Сколько раз встречается");
         for (int i = 0; i < n; i += count[i]) {
-            System.out.println(num[i] + "\t\t\t\t\t" + count[i]);
+            System.out.println(numbers[i] + "\t\t\t\t\t" + count[i]);
         }
 
 
         System.out.println("\nЗадание 9)");
-        for (int number : num) {
+        for (int number : numbers) {
             String strNum = String.valueOf(number);
             int length = strNum.length();
             if (length % 2 != 0) {
@@ -208,7 +216,7 @@ public class Main {
 
         System.out.println("\nЗадание 10)");
 
-        for (int number : num) {
+        for (int number : numbers) {
             int rev = 0;
             int originalNumber = number;
             String strNum = String.valueOf(number);
@@ -228,12 +236,12 @@ public class Main {
         System.out.println("\nЗадание 11)");
         System.out.println("Элементы, которые равны полусумме соседних элементов:");
         for (int i = 1; i < n - 1; i++) {
-            if (num[i] == (num[i - 1] + num[i + 1]) / 2) {
-                System.out.print(num[i] + " ");
+            if (numbers[i] == (numbers[i - 1] + numbers[i + 1]) / 2) {
+                System.out.print(numbers[i] + " ");
             }
 
         }
+*/
 
 
-    }
 }
