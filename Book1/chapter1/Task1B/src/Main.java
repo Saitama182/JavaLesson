@@ -91,6 +91,7 @@ public class Main {
         System.out.println("Нечетные числа: " + oddNumbersList);
 
     }
+
     /**
      * Выводит на консоль числа, которые делятся на 3 и 9 из массива.
      *
@@ -107,6 +108,7 @@ public class Main {
         }
         System.out.println(divisibleBy3And9List);
     }
+
     /**
      * Выводит на консоль числа, которые делятся на 5 и 7 из массива.
      *
@@ -122,6 +124,7 @@ public class Main {
         }
         System.out.println(divisibleBy5And7List);
     }
+
     /**
      * Выводит на консоль наибольшее и наименьшее число.
      *
