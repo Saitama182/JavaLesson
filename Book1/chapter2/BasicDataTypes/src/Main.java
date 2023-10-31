@@ -22,6 +22,9 @@ public class Main {
         System.out.println( b1 + ">>" + ++i + " = " + (b1>>i));
         System.out.println( b1 + "<<" + i + " = " + (b1<<i++));
         System.out.println( b1 + ">>>" + i + " = " + (b1>>>i));
-        
+
+
+
+
     }
 }
