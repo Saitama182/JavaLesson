@@ -1,6 +1,7 @@
 /*
 Ввести n чисел c консоли.
 1. Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
+2. Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины
  */
 
 
@@ -26,6 +27,10 @@ public class Main {
 
             System.out.println("Задание 1 - Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.");
             printShortAndLong(numbers);
+            System.out.println("Задание 2 - Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины.");
+            printInAscendingOrder(numbers);
+            printInDescendingOrder(numbers);
+
 
             scanner.close();
 
@@ -59,5 +64,62 @@ public class Main {
         }
         System.out.println("Самое длинное число: " + maxNum + " , его длина " + maxLength);
         System.out.println("Самое короткое число: " + minNum + " , его длина " + minLength);
+    }
+
+    /**
+     * Упорядочивает и выводит числа в порядке возрастания значений их длины.
+     *
+     * @param numbers Массив чисел для анализа.
+     */
+    private static void printInAscendingOrder(String[] numbers) {
+        boolean swapped = Boolean.parseBoolean("True");
+        while (swapped) {
+            swapped = false;
+            for (int i = 0; i < numbers.length - 1; i++) {
+                if (numbers[i].length() > numbers[i + 1].length() ||
+                        (numbers[i].length() == numbers[i + 1].length() &&
+                                Integer.parseInt(numbers[i]) > Integer.parseInt(numbers[i + 1]))) {
+                    String temp = numbers[i];
+                    numbers[i] = numbers[i + 1];
+                    numbers[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+
+
+        System.out.println("В порядке возрастания: ");
+        for (String num : numbers) {
+            System.out.println(num);
+        }
+    }
+
+    /**
+     * Упорядочивает и выводит числа в порядке убывания значений их длины.
+     *
+     * @param numbers Массив чисел для анализа.
+     */
+
+    private static void printInDescendingOrder(String[] numbers) {
+        boolean swapped = Boolean.parseBoolean("True");
+        while (swapped) {
+            swapped = false;
+            for (int i = 0; i < numbers.length - 1; i++) {
+                if (numbers[i].length() < numbers[i + 1].length() ||
+                        (numbers[i].length() == numbers[i + 1].length() &&
+                                Integer.parseInt(numbers[i]) < Integer.parseInt(numbers[i + 1]))) {
+                    String temp = numbers[i];
+                    numbers[i] = numbers[i + 1];
+                    numbers[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+
+
+        System.out.println("В порядке убывания: ");
+        for (String num : numbers) {
+            System.out.println(num);
+        }
     }
 }
