@@ -2,6 +2,8 @@
 Ввести n чисел c консоли.
 1. Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
 2. Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины
+3. Вывести на консоль те числа, длина которых меньше (больше) средней,
+а также длину
  */
 
 
@@ -30,6 +32,8 @@ public class Main {
             System.out.println("Задание 2 - Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины.");
             printInAscendingOrder(numbers);
             printInDescendingOrder(numbers);
+            System.out.println("Задание 3 - Вывести на консоль те числа, длина которых меньше (больше) средней, а также длину.");
+            printAverageLengthIsLess(numbers);
 
 
             scanner.close();
@@ -122,4 +126,18 @@ public class Main {
             System.out.println(num);
         }
     }
+    /**
+     * Выводит на консоль числа, длина которых меньше средней, а также длину.
+     *
+     * @param numbers Массив чисел для анализа.
+     */
+    private static  void printAverageLengthIsLess(String[] numbers) {
+        int average = 0;
+        for (String num : numbers) {
+            average = (Integer.parseInt(num) + average)/numbers.length;
+
+        }
+        System.out.println(average);
+    }
+
 }
