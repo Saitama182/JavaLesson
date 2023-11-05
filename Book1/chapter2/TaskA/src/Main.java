@@ -4,6 +4,8 @@
 2. Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины
 3. Вывести на консоль те числа, длина которых меньше (больше) средней,
 а также длину
+4. Найти число, в котором число различных цифр минимально. Если таких
+чисел несколько, найти первое из них.
  */
 
 
@@ -33,7 +35,10 @@ public class Main {
             printInAscendingOrder(numbers);
             printInDescendingOrder(numbers);
             System.out.println("Задание 3 - Вывести на консоль те числа, длина которых меньше (больше) средней, а также длину.");
-            printAverageLengthIsLess(numbers);
+            printNumbersWithLengthComparison(numbers);
+            System.out.println("Задание 4 - Найти число, в котором число различных цифр минимально. Если таких чисел несколько, " +
+                    "найти первое из них.");
+            printNumberOfDifferentDigitsMin(numbers);
 
 
             scanner.close();
@@ -127,17 +132,38 @@ public class Main {
         }
     }
     /**
-     * Выводит на консоль числа, длина которых меньше средней, а также длину.
+     * Выводит на консоль числа, длина которых меньше и больше средней, а также длину.
      *
      * @param numbers Массив чисел для анализа.
      */
-    private static  void printAverageLengthIsLess(String[] numbers) {
-        int average = 0;
+    private static  void printNumbersWithLengthComparison(String[] numbers) {
+        double  sum = 0;
+        double average = 0;
         for (String num : numbers) {
-            average = (Integer.parseInt(num) + average)/numbers.length;
-
+            sum += num.length();
         }
-        System.out.println(average);
+        average = sum / numbers.length;
+        System.out.println("Числа, длина которых меньше средней: ");
+        for (String num : numbers) {
+            if(num.length() < average){
+                System.out.println("Число:" + num + ", длинна: " + num.length());
+            }
+        }
+        System.out.println("Числа, длина которых больше средней: ");
+        for (String num : numbers) {
+            if(num.length() > average){
+                System.out.println("Число:" + num + ", длинна: " + num.length());
+            }
+        }
+    }
+    /**
+     * Выводит на консоль числа, в котором число различных цифр минимально. Если таких чисел несколько выводит первое из них.
+     *
+     * @param numbers Массив чисел для анализа.
+     */
+
+    private static void printNumberOfDifferentDigitsMin(String[] numbers) {
+        
     }
 
 }
