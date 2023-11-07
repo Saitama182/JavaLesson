@@ -131,13 +131,14 @@ public class Main {
             System.out.println(num);
         }
     }
+
     /**
      * Выводит на консоль числа, длина которых меньше и больше средней, а также длину.
      *
      * @param numbers Массив чисел для анализа.
      */
-    private static  void printNumbersWithLengthComparison(String[] numbers) {
-        double  sum = 0;
+    private static void printNumbersWithLengthComparison(String[] numbers) {
+        double sum = 0;
         double average = 0;
         for (String num : numbers) {
             sum += num.length();
@@ -145,17 +146,18 @@ public class Main {
         average = sum / numbers.length;
         System.out.println("Числа, длина которых меньше средней: ");
         for (String num : numbers) {
-            if(num.length() < average){
+            if (num.length() < average) {
                 System.out.println("Число:" + num + ", длинна: " + num.length());
             }
         }
         System.out.println("Числа, длина которых больше средней: ");
         for (String num : numbers) {
-            if(num.length() > average){
+            if (num.length() > average) {
                 System.out.println("Число:" + num + ", длинна: " + num.length());
             }
         }
     }
+
     /**
      * Выводит на консоль числа, в котором число различных цифр минимально. Если таких чисел несколько выводит первое из них.
      *
@@ -163,7 +165,32 @@ public class Main {
      */
 
     private static void printNumberOfDifferentDigitsMin(String[] numbers) {
-        
+
     }
 
+
+    /**
+     * Функция служит для подсчета количества различных цифр в числе.
+     *
+     * @param num Массив чисел для анализа.
+     */
+
+
+    public static int countDistinctDigits(String num) {
+        int[] digitCount = new int[10];
+        int distinctCount = 0;
+
+        for (char c : num.toCharArray()) {
+            int digit = Character.getNumericValue(c);
+            digitCount[digit]++;
+            if (digitCount[digit] == 1) {
+                distinctCount++;
+            }
+        }
+
+        return distinctCount;
+    }
 }
+
+
+
