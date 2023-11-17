@@ -165,6 +165,9 @@ public class Main {
      */
 
     private static void printNumberOfDifferentDigitsMin(String[] numbers) {
+        for (String num : numbers){
+            System.out.println(num);
+        }
 
     }
 
@@ -177,19 +180,9 @@ public class Main {
 
 
     public static int countDistinctDigits(String num) {
-        int[] digitCount = new int[10];
-        int distinctCount = 0;
-
-        for (char c : num.toCharArray()) {
-            int digit = Character.getNumericValue(c);
-            digitCount[digit]++;
-            if (digitCount[digit] == 1) {
-                distinctCount++;
-            }
-        }
-
-        return distinctCount;
+        int number =
     }
+
 }
 
 
