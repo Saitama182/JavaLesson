@@ -9,6 +9,7 @@
  */
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -165,23 +166,59 @@ public class Main {
      */
 
     private static void printNumberOfDifferentDigitsMin(String[] numbers) {
-        for (String num : numbers){
-            System.out.println(num);
+        String minNum = numbers[0];
+        int temp = findMinNumber(minNum);
+        for (int i = 0; i < numbers.length; i++){
+            if(findMinNumber(numbers[i]) > temp) {
+                minNum = numbers[i];
+
+            }
         }
+        System.out.println(minNum);
+
 
     }
+
+
 
 
     /**
-     * Функция служит для подсчета количества различных цифр в числе.
+     * Функция служит для выяснения какие цифры есть в числе.
      *
-     * @param num Массив чисел для анализа.
+     * @param num  число для анализа.
      */
 
 
-    public static int countDistinctDigits(String num) {
-        int number =
+    private static int findMinNumber(String num) {
+        int[] digitCount = new int[10];
+        for (int i = 0; i < num.length(); i++) {
+            char digitChar = num.charAt(i);
+            int digit = Character.getNumericValue(digitChar);
+            digitCount[digit]++;
+        }
+        return numberOfRepetitionsOfDigits(digitCount);
+
     }
+
+    /**
+     * Функция служит для подсчета, того сколько повторяется самая повторяющаяся цифра.
+     *
+     * @param digitCount Массив чисел для анализа.
+     */
+
+
+    private static int numberOfRepetitionsOfDigits(int[] digitCount) {
+        int maxDigit = 0;
+        int countMaxRepeatNumber = 0;
+        for (int i = 0; i < digitCount.length; i++) {
+            if (digitCount[i] > countMaxRepeatNumber) {
+                countMaxRepeatNumber = digitCount[i];
+                maxDigit = i;
+            }
+        }
+        return countMaxRepeatNumber;
+    }
+
 
 }
 
