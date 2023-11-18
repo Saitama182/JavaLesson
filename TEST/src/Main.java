@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -8,7 +7,6 @@ public class Main {
         System.out.println("Введите число");
         String number = s.nextLine();
         findMinNumber(number);
-
     }
 
     private static void findMinNumber(String number) {
@@ -19,21 +17,19 @@ public class Main {
             digitCount[digit]++;
         }
         System.out.println(Arrays.toString(digitCount));
-        int count = 0;
-        for (int i = 0; i < digitCount.length; i++) {
-            boolean isUnique = true;
-            for(int j =0; j< i; j++){
-                if(digitCount[i] == digitCount[i]){
-                    isUnique = false;
-                    break;
-                }
-            }
-            if(isUnique){
-                count++;
-            }
-        }
-        System.out.println(count);
+        meMe(digitCount);
     }
 
-
+    private static void meMe(int[] digitCount) {
+        int maxDigit = 0;
+        int countMaxRepeatNumber = 0;
+        for (int i = 0; i < digitCount.length; i++) {
+            if (digitCount[i] > countMaxRepeatNumber) {
+                countMaxRepeatNumber = digitCount[i];
+                maxDigit = i;
+            }
+        }
+        System.out.println("Цифра с максимальным количеством повторений: " + maxDigit);
+        System.out.println("Кол-во повторений " + countMaxRepeatNumber);
+    }
 }
