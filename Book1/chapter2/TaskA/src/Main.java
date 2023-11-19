@@ -40,6 +40,8 @@ public class Main {
             System.out.println("Задание 4 - Найти число, в котором число различных цифр минимально. Если таких чисел несколько, " +
                     "найти первое из них.");
             printNumberOfDifferentDigitsMin(numbers);
+            System.out.println("Задание 5 - Найти количество чисел, содержащих только четные цифры.");
+            printNumberOfDifferentDigitsMin(numbers);
 
 
             scanner.close();
@@ -217,6 +219,29 @@ public class Main {
             }
         }
         return countMaxRepeatNumber;
+    }
+
+    /**
+     * Выводит на консоль количество чисел, содержащих только четные цифры
+     *
+     *
+     * @param numbers Массив чисел для анализа.
+     */
+
+    /**
+     * Функция служит для нахождения чисел, содержащих только четные цифры
+     *
+     *
+     * @param num  число для анализа.
+     */
+
+    private static int findEvenNumbers(String num){
+        int[] digitCount = new int[10];
+        for (int i = 0; i < num.length(); i++) {
+            char digitChar = num.charAt(i);
+            int digit = Character.getNumericValue(digitChar);
+            digitCount[digit]++;
+        }
     }
 
 
