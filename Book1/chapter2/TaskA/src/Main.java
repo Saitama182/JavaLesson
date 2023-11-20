@@ -40,8 +40,9 @@ public class Main {
             System.out.println("Задание 4 - Найти число, в котором число различных цифр минимально. Если таких чисел несколько, " +
                     "найти первое из них.");
             printNumberOfDifferentDigitsMin(numbers);
-            System.out.println("Задание 5 - Найти количество чисел, содержащих только четные цифры.");
-            printNumberOfDifferentDigitsMin(numbers);
+            System.out.println("Задание 5 - Найти количество чисел, содержащих только четные цифры, а среди них — \n" +
+                    "количество чисел с равным числом четных и нечетных цифр");
+            printNumberOfNumbersContainingOnlyEvenDigits(numbers);
 
 
             scanner.close();
@@ -222,11 +223,26 @@ public class Main {
     }
 
     /**
-     * Выводит на консоль количество чисел, содержащих только четные цифры
+     * Выводит на консоль количество чисел, содержащих только четные цифры и
+     * количество чисел с равным числом четных и нечетных цифр
      *
      *
      * @param numbers Массив чисел для анализа.
      */
+
+    private static void printNumberOfNumbersContainingOnlyEvenDigits(String[] numbers){
+
+        int onlyEvenDigitsCount = 0;
+        int equalEvenOddDigitsCount = 0;
+        for (String num : numbers) {
+            int[] digitCount = findEvenNumbers(num);
+
+
+        }
+
+    }
+
+
 
     /**
      * Функция служит для нахождения чисел, содержащих только четные цифры
@@ -235,13 +251,14 @@ public class Main {
      * @param num  число для анализа.
      */
 
-    private static int findEvenNumbers(String num){
+    private static int[] findEvenNumbers(String num){
         int[] digitCount = new int[10];
         for (int i = 0; i < num.length(); i++) {
             char digitChar = num.charAt(i);
             int digit = Character.getNumericValue(digitChar);
             digitCount[digit]++;
         }
+        return digitCount;
     }
 
 
